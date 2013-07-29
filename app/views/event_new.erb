@@ -1,0 +1,19 @@
+<% if @event.errors.any? %>
+      <div class="alert alert-danger">
+        <ul>
+          <% @event.errors.full_messages.each do |error| %>
+            <li>
+              <%= error %>
+            </li>
+          <% end %>
+      </ul>
+      </div>
+    <% end%>
+
+<form action="/events/create" method="post">
+	Event Title: <input type="text" name="title" value="<%= params[:title] %>" /><br />
+	Organizer's Name: <input type="text" name="organizer_name" value="<%= params[:organizer_name] %>" /><br />
+	Organizer's Email Addess: <input type="text" name="organizer_email" value="<%= params[:organizer_email] %>" /><br />
+	Event Date: <input type="text" name="date" id="datepicker" /><br />
+	<input type="submit" value="Create Event" />
+</form>
